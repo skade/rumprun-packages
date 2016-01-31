@@ -1,0 +1,19 @@
+--- ../dl/Squeak-4.10.2.2593-src/unix/cmake/PluginExternal.cmake	2009-08-27 03:48:04.000000000 +0200
++++ ./unix/cmake/PluginExternal.cmake	2016-01-31 16:39:01.000000000 +0100
+@@ -1,4 +1,4 @@
+-ADD_DEFINITIONS (${@plugin@_definitions})
++ADD_DEFINITIONS (-DSQUEAK_BUILTIN_PLUGIN=1 ${@plugin@_definitions})
+ LINK_DIRECTORIES (${@plugin@_link_directories})
+ INCLUDE_DIRECTORIES (${@plugin@_include_directories}
+     ${bld}
+@@ -12,8 +12,4 @@
+     ${cross}/plugins/@plugin@
+ )
+ 
+-ADD_LIBRARY (@plugin@ MODULE @plugin_sources@)
+-
+-TARGET_LINK_LIBRARIES (@plugin@ ${@plugin@_link_libraries})
+-
+-INSTALL (TARGETS @plugin@ LIBRARY DESTINATION @plgdir@)
++ADD_LIBRARY (@plugin@ STATIC @plugin_sources@)
+\ No newline at end of file

@@ -1,0 +1,16 @@
+--- ../dl/Squeak-4.10.2.2593-src/./unix/vm/SqModule.h	2006-09-14 19:52:28.000000000 +0200
++++ ./unix/vm/SqModule.h	2016-01-31 16:32:09.000000000 +0100
+@@ -5,6 +5,7 @@
+ #define SqModuleVersionMajor	1
+ #define SqModuleVersionMinor	1
+ #define SqModuleVersion		((SqModuleVersionMajor << 16) | (SqModuleVersionMinor))
++#define SqModuleName(TYPE, NAME)	TYPE##_##NAME
+ 
+ struct SqModule
+ {
+@@ -32,5 +33,4 @@
+   0						\
+ }
+ 
+-
+ #endif /* __sq_SqModule_h */
